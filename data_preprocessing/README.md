@@ -42,7 +42,7 @@ So I've uploaded these files to google drive, where they can be downloaded easil
 The original link which doesn't work with `curl`: `https://opus.nlpl.eu/download.php?f=QED/v2.0a/xml/en.zip`
 ```shell
 cd ${DATA_DIR}/tmp
-gdown 15_Y5TjJwZdWH1dzLV3tDWEWwnry0o6m0
+gdown 1R2xWtNeVX48RiFA7vErL1pNtws3XEsYP
 unzip qed.zip
 cd ${DATA_DIR}
 python preprocess_qed.py tmp/qed tmp/qed_en
