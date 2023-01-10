@@ -45,8 +45,8 @@ cd ${DATA_DIR}/tmp
 gdown 1R2xWtNeVX48RiFA7vErL1pNtws3XEsYP
 unzip qed.zip
 cd ${DATA_DIR}
-python preprocess_qed.py tmp/qed tmp/qed_en
-cat tmp/qed_en/* >> preprocessed_data/qed.txt
+python preprocess_qed.py tmp/en tmp/qed
+cat tmp/qed/* >> preprocessed_data/qed.txt
 ```
 
 ## Children stories
