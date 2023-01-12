@@ -1,5 +1,0 @@
-argparse
-lxml
-nltk
-numpy
-pandas
