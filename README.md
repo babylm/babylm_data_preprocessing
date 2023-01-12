@@ -1,4 +1,10 @@
-# Initialize stuff
+# BabyLM Data Preprocessing
+
+This repo contains instructions for reproducing the preprocessing pipeline for the [BabyLM challenge](https://babylm.github.io/index.html). 
+
+**NOTE: It is not necessary to reproduce these steps to use the BabyLM data. The complete preprocessed dataset can be downloaded directly on the BabyLM website!!**
+
+## Initialize stuff
 Start out in the `data_preprocessing` directory which contains this `README.md`.
 ```shell
 conda create --name babylm_preprocessing
@@ -9,7 +15,7 @@ mkdir ${PROJECT_DIR}/preprocessed_data
 ```
 
 
-# Direct downloads of preprocessed data
+## Direct downloads of preprocessed data
 Some data is already downloadable in a nice preprocessed form. Let's download those first.
 
 These first three sources were preprocessed by others:
@@ -34,22 +40,11 @@ tar -xvzf CBTest.tgz
 mv CBTest/data/cbt_* ${PROJECT_DIR}/preprocessed_data/
 ```
 
-The next two are available in preprocessed form, but for some reason the original download links don't work with `curl`.
+The next one is available in preprocessed form, but for some reason the original download links don't work with `curl`.
 So I've uploaded these files to google drive, where they can be downloaded easily from command line:
 
 
-### QED
-The original link which doesn't work with `curl`: `https://opus.nlpl.eu/download.php?f=QED/v2.0a/xml/en.zip`
-```shell
-cd ${PROJECT_DIR}/tmp
-gdown 1R2xWtNeVX48RiFA7vErL1pNtws3XEsYP
-unzip qed.zip
-cd ${PROJECT_DIR}
-python preprocess_qed.py tmp/en tmp/qed
-cat tmp/qed/* >> preprocessed_data/qed.txt
-```
-
-## Children stories
+### Children stories
 The original link which doesn't work with `curl`: `https://www.kaggle.com/datasets/edenbd/children-stories-text-corpus/download?datasetVersionNumber=1`
 ```shell
 cd ${PROJECT_DIR}/preprocessed_data
@@ -79,7 +74,19 @@ unzip wikipedia.txt.zip
 rm wikipedia.txt.zip
 ```
 
-# Datasets that require substantial preprocessing
+## Datasets that require substantial preprocessing
+
+### QED
+The original link which doesn't work with `curl`: `https://opus.nlpl.eu/download.php?f=QED/v2.0a/xml/en.zip`
+```shell
+cd ${PROJECT_DIR}/tmp
+gdown 1R2xWtNeVX48RiFA7vErL1pNtws3XEsYP
+unzip qed.zip
+cd ${PROJECT_DIR}
+python preprocess_qed.py tmp/en tmp/qed
+cat tmp/qed/* >> preprocessed_data/qed.txt
+```
+
 
 ### Simple Wiki
 ```shell
@@ -148,8 +155,9 @@ cat tmp/gutenberg_modern_en/* >> preprocessed_data/gutenberg.txt
 ```
 
 
-# Sampling and splitting data
+## Sampling and splitting data
 ```shell
 cd ${PROJECT_DIR}
 . sample_chunks_and_split.sh
+. sample_chunks_and_split_small.sh
 ```
