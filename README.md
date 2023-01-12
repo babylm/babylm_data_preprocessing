@@ -74,7 +74,7 @@ unzip wikipedia.txt.zip
 rm wikipedia.txt.zip
 ```
 
-# Datasets that require substantial preprocessing
+## Datasets that require substantial preprocessing
 
 ### QED
 The original link which doesn't work with `curl`: `https://opus.nlpl.eu/download.php?f=QED/v2.0a/xml/en.zip`
@@ -155,8 +155,9 @@ cat tmp/gutenberg_modern_en/* >> preprocessed_data/gutenberg.txt
 ```
 
 
-# Sampling and splitting data
+## Sampling and splitting data
 ```shell
 cd ${PROJECT_DIR}
 . sample_chunks_and_split.sh
+. sample_chunks_and_split_small.sh
 ```
