@@ -3,3 +3,6 @@ data_preprocessing/tmp
 data_preprocessing/gutenberg/data
 data_preprocessing/gutenberg/modern_en
 data_preprocessing/gutenberg/metadata
+babylm_data
+babylm_data.zip
+langid.pybaby
