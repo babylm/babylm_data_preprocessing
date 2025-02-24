@@ -1,8 +1,8 @@
 import os
 import re
 
-out_file = open(os.path.join("preprocessed_data/simple_wiki.txt"), "w")
-wiki_dir = os.path.join("tmp", "text")
+out_file = open("tmp/simple_wiki.txt", "w")
+wiki_dir = "tmp/text"
 for d1 in os.listdir(wiki_dir):
 	for f in os.listdir(os.path.join(wiki_dir, d1)):
 		with open(os.path.join(wiki_dir, d1, f)) as input:
@@ -11,7 +11,7 @@ for d1 in os.listdir(wiki_dir):
 			for line in input:
 				if line.startswith("<doc"):
 					line = next(input)
-					title = line
+					title = f"= = = {line.strip()} = = =\n"
 				elif re.match(r"^\s*$", line):
 					continue
 				elif "</doc>" in line:
@@ -22,5 +22,3 @@ for d1 in os.listdir(wiki_dir):
 						doc = []
 				else:
 					doc.append(line)
-
-

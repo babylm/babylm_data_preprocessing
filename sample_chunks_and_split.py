@@ -29,14 +29,8 @@ def sample_chunks():
         if args.split_at.isdecimal():
             chunksize = int(int(args.split_at) * n_lines / n_words)
         p_keep = args.p_keep if args.p_keep else args.n_keep / n_words
-        if args.p_keep_dev:
-            p_keep_dev = args.p_keep_dev
-        elif args.n_keep_dev:
-            p_keep_dev = args.n_keep_dev / n_words
-        else:
-            p_keep_dev = None
+        p_keep_dev = args.p_keep_dev if args.p_keep_dev else args.n_keep_dev / n_words
         with open(out_prefix + ".train", "w") as f_train, open(out_prefix + ".test", "w") as f_test, open(out_prefix + ".dev", "w") as f_dev:
-            print(out_prefix + ".train")
             chunk = []
             counter = 0
             for line in f_in:
